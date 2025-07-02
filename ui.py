@@ -3,6 +3,10 @@ import os
 class UI:
     "A class to handle user interface thingies :)"
 
+    def __init__(self):
+        """Initializes the UI class."""
+        pass
+    
     def clear_screen(self):
         """Clears the terminal."""
         os.system('cls')
