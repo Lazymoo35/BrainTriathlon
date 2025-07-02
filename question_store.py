@@ -68,21 +68,21 @@ class QuestionStore:
         }
 
     def get_social_question(self, difficulty):
-    """ A method to ask a social question based on difficulty level. """
-        country = random.choice(list(self.social_question[self.difficulty].keys()))
+        """ A method to ask a social question based on difficulty level. """
+        country = random.choice(list(self.social_question[difficulty].keys()))
         correct_answer = self.social_question[difficulty][country]
         social_prompt = f"What is the capital of {country}? "
-        return (prompt, correct_answer)
+        return (social_prompt, correct_answer)
     
     def get_math_question(self, difficulty):
-    """ A method to formulate math question based on difficulty level. """
-        if difficulty == "easy"
+        """ A method to formulate math question based on difficulty level. """
+        if difficulty == "easy":
             num1 = random.randint(1, 20)
             num2 = random.randint(1, 10)
         elif difficulty == "medium":
             num1 = random.randint(5, 50)
             num2 = random.randint(5, 20)
-        else difficulty == "hard":
+        else:
             num1 = random.randint(15, 30)
             num2 = random.randint(15, 20)
         
@@ -95,9 +95,9 @@ class QuestionStore:
         return (math_prompt, str(correct_answer))
     
     def get_word_question(self, difficulty):
-    """ A method to ask word question based on difficulty level. """
+        """ A method to ask word question based on difficulty level. """
         word = random.choice(self.word_question[difficulty]).upper()
         puzzle = "".join("_" if c in "AEIOU" else c for c in word)
         
-i       word_prompt = f"Guess the word: {puzzle}"
+        word_prompt = f"Guess the word: {puzzle}"
         return (word_prompt, word)
